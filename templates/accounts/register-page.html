@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+{% block content %}
+    <section class="main-container">
+        <h1>Media Land</h1>
+    </section>
+
+    <section class="login-register-container">
+        <div class="login-register-fields">
+
+            <form action="{% url 'register user' %}" method="post">
+                {% csrf_token %}
+                <h1>Register</h1>
+                {{ form.username|placeholder:'Username' }}
+                {{ form.email|placeholder:'Email' }}
+                {{ form.password1|placeholder:'Password' }}
+                {{ form.password2|placeholder:'Repeat Password' }}
+
+                <input type="hidden" value="{{ next }}" name="next">
+
+                <button type="submit">Register</button>
+            </form>
+        </div>
+
+        <div class="options">
+            <p>You already have an account?</p>
+            <a href="{% url 'login user' %}?next={{ next }}">Log in</a>
+        </div>
+
+    </section>
+
+{% endblock %}

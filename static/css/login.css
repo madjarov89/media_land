@@ -1,0 +1,73 @@
+.login-register-container {
+	margin: 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.login-register-fields, .options {
+	display: block;
+	width: 300px;
+	background-color: rgb(255, 255, 255);
+	border: 1px solid rgb(156, 152, 152);
+	padding: 40px;
+	margin-bottom: 15px;
+	border-radius: 6px;
+	box-shadow: 1px 2px 3px #888888;
+}
+
+.login-register-container h1 {
+	font-family: 'Lily Script One', cursive;
+	font-size: 40px;
+	text-align: center;
+	margin-top: -10px;
+}
+
+.login-register-container label {
+	display: none;
+}
+
+.login-register-container input {
+	background-color: rgb(240, 230, 230);
+	border: 1px solid rgb(186, 184, 184);
+	border-radius: 3px;
+	height: 30px;
+	width: 100%;
+	padding-left: 2px;
+	margin-top: 10px;
+}
+
+.login-register-container button {
+	background-color: #343a40;
+	color: white;
+	font-weight: bold;
+	border: none;
+	width: 100%;
+	border-radius: 6px;
+	margin-top: 10px;
+	height: 30px;
+	cursor: pointer;
+}
+
+.options {
+	text-align: center;
+	padding: 20px;
+}
+
+.options a {
+	background-color: #343a40;
+	font-size: small;
+	color: white;
+	font-weight: bold;
+	border: none;
+	width: 100%;
+	border-radius: 6px;
+	height: 30px;
+}
+
+.options p {
+	margin-bottom: 10px;
+	color: #343a40;
+	font-size: medium;
+}

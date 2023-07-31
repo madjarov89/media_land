@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    {% load static %}
+    <div class="not-found-img">
+        <img src="{% static 'images/404.png' %}" alt="404 not found">
+    </div>
+
+    <div class="not-found">
+        <h1>
+            Oops, looks like the page is missing...
+        </h1>
+
+        <h3>Error 404 - page not found.</h3>
+        <a href="{% url 'home page' %}">
+            <button>Go back to Media Land</button>
+        </a>
+    </div>
+
+{% endblock %}

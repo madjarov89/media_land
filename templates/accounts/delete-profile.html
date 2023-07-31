@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% load static %}
+
+    <section class="main-container">
+        <h1>Profile Delete</h1>
+    </section>
+
+        <div class="profile-container">
+
+            <form class="profile-edit" method="post" action="{% url 'profile delete' pk=request.user.id %}">
+                {% csrf_token %}
+
+                <h2 class="delete-profile-lead-text">Are you sure, you want to delete your Media Land Profile,</h2>
+
+                <h3>{{ object.username }} ?</h3>
+
+                <button type="submit">Delete Profile</button>
+
+                <a href="{% url 'profile details' pk=object.id %}">Go back</a>
+
+            </form>
+        </div>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% load static %}
+
+    <section class="main-container">
+        <h1>Your Profile</h1>
+    </section>
+
+        <div class="profile-container">
+
+            <div class="profile-edit">
+
+                <h3>{{ object.username }}</h3>
+
+            <div class="profile-img">
+                <img class="media-img" src="/media_files/{{ object.profile_picture }}" alt="No Profile Picture">
+            </div>
+                <h4>{{ request.user.first_name }} {{ request.user.last_name }}</h4>
+
+                <p>e-mail: {{ request.user.email }}</p>
+
+                {% if request.user.gender == 1 %}
+                    <p>Gender: Male</p>
+                {% elif request.user.gender == 2 %}
+                    <p>Gender: Female</p>
+                {% else %}
+                    <p>Gender: Not important</p>
+                {% endif %}
+
+                <a href="{% url 'profile edit' pk=object.id %}">Edit Profile</a>
+
+                <a href="{% url 'profile delete' pk=object.id %}">Delete Profile</a>
+
+            </div>
+
+            <div class="profile-data">
+
+                <p class="first">Media</p>
+                <p class="second">Likes</p>
+                <p class="third">Comments</p>
+
+                <div class="number fourth">6</div>
+                <div class="number fifth">8</div>
+                <div class="number sixth">9</div>
+
+            </div>
+
+        </div>
+
+        <div class="media-photos">
+
+            {% for media in object.media_set.all %}
+            <a href="{% url 'edit media' pk=media.id %}">
+
+                <img src="{{ media.image }}"
+                     alt="{{ media.description }}">
+            </a>
+            {% endfor %}
+        </div>
+
+{% endblock %}

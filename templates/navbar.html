@@ -1,0 +1,63 @@
+{% load static %}
+
+<header>
+
+        <nav class="navigation">
+
+            <div class="logo-pic">
+                <a href="{% url 'home page' %}">
+                    <img class="logo-img" width="50px" src="{% static 'images/logo.jpg' %}" alt="img1">
+                </a>
+            </div>
+
+            <div class="logo-text">
+                <a href="{% url 'home page' %}">Media Land</a>
+            </div>
+
+            <div class="nav-links">
+                <ul>
+                    <li class="nav-item">
+                        <a href="{% url 'media details' %}">
+                            Media
+                        </a>
+                    </li>
+
+                    {% if request.user.is_authenticated %}
+                        <li class="nav-item">
+                            <a href="{% url 'shopping cart' pk=request.user.pk %}">
+                                Shopping Cart
+                            </a>
+                        </li>
+
+                    <li class="nav-item">
+                        <a href="{% url 'profile details' pk=request.user.pk %}">
+                            Profile
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{% url 'logout user' %}">
+                            Logout
+                        </a>
+                    </li>
+
+                    {% else %}
+
+                    <li class="nav-item">
+                        <a href="{% url 'login user' %}">
+                            Login
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{% url 'register user' %}">
+                            Register
+                        </a>
+                    </li>
+
+                    {% endif %}
+
+                </ul>
+            </div>
+        </nav>
+</header>

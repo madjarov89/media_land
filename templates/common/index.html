@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% load static %}
+
+    <section class="main-container">
+
+        {% if request.user.is_authenticated %}
+        <h1>Wellcome to the Media Land Site, {{ request.user.username|capfirst }}!</h1>
+        {% else %}
+        <h1>Wellcome to the Media Land Site!</h1>
+        {% endif %}
+
+        <div class="hero-text">
+            This is the ultimate media-sharing site for people who develop, buy, sell or just enjoy
+            playing and experiencing new and adventurous computer games,<br />
+            videos, music and more... <br />
+            Share your opinions and experiences with others and enjoy!
+        </div>
+    </section>
+
+    <section>
+        <form class="search-box" action="{% url 'home page' %}" method="GET">
+                {% csrf_token %}
+                {{ search_form }}
+                <button class="search-button">
+                    <img class="button-img" src="{% static 'images/search.png' %}" height="18" alt="img2">
+                </button>
+        </form>
+
+        <div class="card-section">
+            <article class="card">
+                <a class="details-link" href="{% url 'media details' %}">
+                    <img class="game-img" src="{% static 'images/game_1.jpg' %}" alt="img1">
+                </a>
+                <div class="card-container">
+                    <h3>First game</h3>
+                    <br />
+                    <p>This is the first game I added here on this site.</p>
+                    <a href="{% url 'media details' %}">See game details</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <a class="details-link" href="{% url 'media details' %}">
+                <img class="game-img" src="{% static 'images/game_2.jpg' %}" alt="img1">
+                </a>
+                <div class="card-container">
+                    <h3>Second game</h3>
+                    <br />
+                    <p>This is the second game I added here on this site.</p>
+                    <a href="{% url 'media details' %}">See game details</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <a class="details-link" href="{% url 'media details' %}">
+                <img class="game-img" src="{% static 'images/game_3.jpg' %}" alt="img1">
+                </a>
+                <div class="card-container">
+                    <h3>Third game</h3>
+                    <br />
+                    <p>This is the third game I added here on this site.</p>
+                    <a href="{% url 'media details' %}">See game details</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <a class="details-link" href="{% url 'media details' %}">
+                <img class="game-img" src="{% static 'images/game_4.jpg' %}" alt="img1">
+                </a>
+                <div class="card-container">
+                    <h3>Fourth game</h3>
+                    <br />
+                    <p>This is the fourth game I added here on this site.</p>
+                    <a href="{% url 'media details' %}">See game details</a>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% load static %}
+
+    <section class="main-container">
+        <h1>Edit Your Profile</h1>
+    </section>
+
+        <div class="profile-container">
+
+            <form class="profile-edit" method="post" action="{% url 'profile edit' pk=request.user.id %}">
+                {% csrf_token %}
+
+                <h4>{{ form.profile_picture }}</h4>
+
+                <h4>First Name: {{ form.first_name }}</h4>
+
+                <h4>Last Name: {{ form.last_name }}</h4>
+
+                <h4>E-mail: {{ form.email }}</h4>
+
+                <h4>Gender: {{ form.gender }}</h4>
+
+                <button type="submit">Save Profile</button>
+
+                <a href="{% url 'profile delete' pk=object.id %}">Delete Profile</a>
+
+            </form>
+        </div>
+
+{% endblock %}
